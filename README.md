@@ -20,7 +20,7 @@ Then, the *Pi_trash_classifier.py* and the *Mob_garbage_v2.tflite* shall be plac
 
 3. On your Raspberry Pi, run the *Pi_trash_classifier.py* program using Python 3.
 
-NB: An UDP client/server is used for communication between PC and Raspberry Pi, therefore, the PC IP address shall be set in *Pi_trash_classifier.py* and the Port number shall be set on both *ABS_classified_goto_udp.py* and *Pi_trash_classifier.py*.
+An UDP client/server is used for communication between PC and Raspberry Pi, therefore, the PC IP address shall be set in *Pi_trash_classifier.py* and the Port number shall be set on both *ABS_classified_goto_udp.py* and *Pi_trash_classifier.py*.
 
 ## Intelligent Waste Sorting Bin
 The Intelligent Waste Sorting Bin requires a Raspberry Pi with OpenCV and Tensorflow lite, and a PCA9685 card. Only the *test_PCA9685* folder is needed, it contains the Python algorithm, the MobileNetV2 model and the PCA9685 libraries. 
