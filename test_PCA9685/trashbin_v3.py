@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Nov 25 18:43:09 2021
+Stage Master: Waste Sorting using AI and Robotics
 
 @author: Ishan FOOLELL
 Master IAR
 Universite des Mascareignes
+
+Description: Python program for Smart Waste Sorting Bin
 """
 
-# Python program to illustrate the concept
-# of threading
+
 import threading
 import os
 import time
@@ -30,6 +31,7 @@ import RPi.GPIO as GPIO
 
 
 def task1():
+    """ Object detection """
     global detected
     global third_image
     global absolute_difference
@@ -110,6 +112,7 @@ def task1():
 
 
 def task2():
+    """ Servo control for pan and tilt and container door """
     global confirm
     print("Task 2 assigned to thread: {}".format(threading.current_thread().name))
     print("ID of process running task 2: {}".format(os.getpid()))
@@ -173,6 +176,7 @@ def most_frequent(List):
 
 
 def task3():
+    """ Trash classification """
     global predicted_class
     global predict_list
     global confirm
@@ -217,10 +221,12 @@ def task3():
                 predicted_class = "trash"
                 
 def update():
+    """ update predicted class """
     lbl.config(text = predicted_class)
     lbl.after(1000, update)
     
 def confirmation():
+    """ OK button """
     global confirm
     confirm = True
     btn3.place_forget()
@@ -229,12 +235,14 @@ def confirmation():
     btn6.place_forget()
     
 def other():
+    """ Other button """
     btn3.place(x = 500, y= 500)
     btn4.place(x = 700, y= 500)
     btn5.place(x = 500, y= 600)
     btn6.place(x = 700, y= 600)
     
 def plastic():
+    """ Plastic button """
     global predicted_class
     global predict_list
     global p
@@ -246,6 +254,7 @@ def plastic():
         predict_list.append(4)
 
 def metal():
+    """ Metal button """
     global predicted_class
     global predict_list
     global m
@@ -258,6 +267,7 @@ def metal():
         predict_list.append(2)
         
 def paper():
+    """ Paper button """
     global predicted_class
     global predict_list
     global r
@@ -269,6 +279,7 @@ def paper():
         predict_list.append(3)
         
 def trash():
+    """ Trash button """
     global predicted_class
     global predict_list
     global t
@@ -281,6 +292,7 @@ def trash():
 
 
 def task4():
+    """ Graphical User Interface """
     global lbl, btn3, btn4, btn5, btn6
     global predict_list
     print("Task 4 assigned to thread: {}".format(threading.current_thread().name))
@@ -309,6 +321,7 @@ def task4():
   
 
 def task5():
+    """ Bin opening """
     global waiting
     print("Task 5 assigned to thread: {}".format(threading.current_thread().name))
     print("ID of process running task 5: {}".format(os.getpid()))
